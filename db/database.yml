@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: scavenger_development
+  pool: 5
+  username: cristopher
+  password: password1
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: scavenger_test
+  pool: 5
+  username: cristopher
+  password: password1
