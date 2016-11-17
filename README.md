@@ -1,4 +1,4 @@
-# HOW TO SETUP
+# How to Setup
 
 * Do this before anything else:
   * Install Homebrew for OSX: (http://brew.sh/index_pt-br.html)
