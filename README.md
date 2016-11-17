@@ -1,24 +1,21 @@
-# README
+# How to Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Do this before anything else:
+  * Install Homebrew for OSX: (http://brew.sh/index_pt-br.html)
+  * 'brew update' on terminal
 
-Things you may want to cover:
+* Ruby version - ruby 2.3.0p0 
+  * 'brew install ruby' on terminal
+  * Check the version you have installed in your pc running the command 'ruby -v' on terminal
 
-* Ruby version
+* Rails version - rails 5.0.0.1 
+  * 'gem install rails' on terminal
+  * Check the version you have installed in your pc running the command 'rails -v' on terminal
 
-* System dependencies
+* We'll use postgresDb in this project, so you must have it up and running on your machine! Follow this:
 
-* Configuration
+  * Postgres version - 9.6.1
+    * Follow this:
+      * https://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
+      
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
