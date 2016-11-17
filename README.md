@@ -15,8 +15,7 @@
 * We'll use postgresDb in this project, so you must have it up and running on your machine! Follow this:
 
   * Postgres version - 9.6.1
-    * 'brew install postgres' on terminal
-    * You need to create a db using the following command: 'initdb /usr/local/var/postgres -E utf8'
-      * if it doesn't work, change the path to another directory)
-  * Setting up Postgresql for ruby on rails development on osx:
-    * https://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
+    * Follow this:
+      * https://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
+      
+
