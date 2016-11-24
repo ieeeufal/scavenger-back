@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
+  #before_action :authenticate_user!
+
   # GET /users/new
   def new_user
+    if user_signed_in?
+      redirect_to show_user_path(current_user)
+    end
   end
 
   # POST /users/create
@@ -10,8 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(username:           params[:username],
                      first_name:         params[:first_name],
                      last_name:          params[:last_name],
-                     email:              params[:email],
-                     encrypted_password: params[:encrypted_password])
+                     email:              params[:email])
 
     # TODO: Verify user fields
     if @user.save
@@ -26,13 +30,17 @@ class UsersController < ApplicationController
   def edit_user
     # TODO: Check if the user is logged into its own account, or if the user
     # has admin privileges.
-    @user = User.find(params[:id])
+    if user_signed_in?
+      @user = current_user
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /users/:id/update
   def update_user
     # TODO: Check if the user is logged into its own account.
-    @user = User.find(params[:id])
+    @user = current_user
 
     # TODO: Verify user fields
     if @user.update(params)
@@ -40,13 +48,14 @@ class UsersController < ApplicationController
     else
       # TODO: If do not save user, redirect to an error page.
       redirect_to root_path
+    end
   end
 
   # GET /users/:id
   def show_user
     # TODO: Check if the user is logged into its own account or if it has admin
     # privileges.
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   # GET /users
@@ -62,6 +71,7 @@ class UsersController < ApplicationController
 
     if @user.destroy
       redirect_to show_all_users
+    end
   end
 
 end
