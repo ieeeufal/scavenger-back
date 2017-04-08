@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-  #before_action :authenticate_user!
-
   # GET /users/new
+  # This method is not backend responsability.
   def new_user
     if user_signed_in?
       redirect_to show_user_path(current_user)
@@ -56,12 +55,14 @@ class UsersController < ApplicationController
     # TODO: Check if the user is logged into its own account or if it has admin
     # privileges.
     @user = current_user
+    render json: @user
   end
 
   # GET /users
   # TODO: this controller must have admin privileges.
   def show_all_users
     @users = User.all
+    render json: @users
   end
 
   # DELETE /users/:id
