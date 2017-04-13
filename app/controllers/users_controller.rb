@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 
-  # GET /users/new
+private
+  def user_params
+    params.require(:user).permit(:userame, :name, :email, :password, :password_confirmation)
+  end
+
+public
+  # GET api/users/new
   # This method is not backend responsability.
   def new_user
     if user_signed_in?
@@ -10,18 +16,12 @@ class UsersController < ApplicationController
 
   # POST /users/create
   def create_user
-    # TODO: Check for how to send the password thru params hash.
-    @user = User.new(username:           params[:username],
-                     first_name:         params[:first_name],
-                     last_name:          params[:last_name],
-                     email:              params[:email])
+    @user = User.new(user_params)
 
-    # TODO: Verify user fields
     if @user.save
-      redirect_to show_user_path(@user)
+      render json: {}, status: 200
     else
-      # TODO: If do not save user, redirect to an error page.
-      redirect_to root_path
+      render json: {}, status: 400
     end
   end
 

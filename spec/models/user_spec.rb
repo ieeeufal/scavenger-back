@@ -4,6 +4,7 @@ RSpec.describe User, :type => :model do
 
   before(:each) do
     @attr = {
+      :username => "example",
       :name => "Example User",
       :email => "user@example.com",
       :password => "changeme",
